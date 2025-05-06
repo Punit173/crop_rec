@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fas fa-seedling"></i>
+                <h2>CropAI</h2>
+            </div>
+            <div class="info-card">
+                <h3>About</h3>
+                <p>Get intelligent crop recommendations based on soil and environmental conditions.</p>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <h1>Crop Recommendation System</h1>
+                <p>Enter the parameters below to get crop recommendations</p>
+            </div>
+
+            <div class="form-container">
+                <form id="cropForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="N">
+                                <i class="fas fa-flask"></i>
+                                Nitrogen (N)
+                            </label>
+                            <input type="number" id="N" name="N" required min="0" max="140" step="1"
+                                placeholder="Enter N content">
+                        </div>
+                        <div class="form-group">
+                            <label for="P">
+                                <i class="fas fa-flask"></i>
+                                Phosphorus (P)
+                            </label>
+                            <input type="number" id="P" name="P" required min="0" max="140" step="1"
+                                placeholder="Enter P content">
+                        </div>
+                        <div class="form-group">
+                            <label for="K">
+                                <i class="fas fa-flask"></i>
+                                Potassium (K)
+                            </label>
+                            <input type="number" id="K" name="K" required min="0" max="140" step="1"
+                                placeholder="Enter K content">
+                        </div>
+                        <div class="form-group">
+                            <label for="temperature">
+                                <i class="fas fa-temperature-high"></i>
+                                Temperature
+                            </label>
+                            <input type="number" id="temperature" name="temperature" required min="0" max="50"
+                                step="0.1" placeholder="Enter temperature in °C">
+                        </div>
+                        <div class="form-group">
+                            <label for="humidity">
+                                <i class="fas fa-tint"></i>
+                                Humidity
+                            </label>
+                            <input type="number" id="humidity" name="humidity" required min="0" max="100" step="0.1"
+                                placeholder="Enter humidity %">
+                        </div>
+                        <div class="form-group">
+                            <label for="ph">
+                                <i class="fas fa-vial"></i>
+                                pH Value
+                            </label>
+                            <input type="number" id="ph" name="ph" required min="0" max="14" step="0.1"
+                                placeholder="Enter pH value">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="rainfall">
+                                <i class="fas fa-cloud-rain"></i>
+                                Rainfall
+                            </label>
+                            <input type="number" id="rainfall" name="rainfall" required min="0" max="300" step="0.1"
+                                placeholder="Enter rainfall in mm">
+                        </div>
+                    </div>
+                    <button type="submit">
+                        <i class="fas fa-magic"></i>
+                        Get Recommendation
+                    </button>
+                </form>
+            </div>
+
+            <div id="result" class="result-container">
+                <div class="result-content">
+                    <h2>Recommended Crop</h2>
+                    <div class="prediction-box">
+                        <i class="fas fa-leaf"></i>
+                        <p id="prediction"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
